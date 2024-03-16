@@ -1,7 +1,8 @@
 "use client"
 import MeetupList from "@/components/meetups/MeetupList";
 import Layout from "@/components/layout/Layout";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import Head from "next/head";
 
 const DUMMY_MEETSUP =[
   {
@@ -35,7 +36,17 @@ export default function Home(props) {
     },[])
 
   return (
-       <MeetupList meetups={loadedMeetups}/>
+    <Fragment>
+      <Head>
+        <title>React Meetsups</title>
+        <meta 
+        name="description"
+        content="Browse  a huge list of highly active React meetsup "
+        />
+      <MeetupList meetups={loadedMeetups}/>
+      </Head>
+    </Fragment>
+       
   );
 }
 
